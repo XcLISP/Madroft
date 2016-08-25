@@ -7,7 +7,6 @@
 'use strict'
 
 const threads = require('threads')
-const thread = threads.spawn(function(){})
 const net = require('net')
 
 const host = '222.187.254.57'
