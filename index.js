@@ -23,7 +23,6 @@ const buffet = Buffer.from([...new Array(1400).keys()].map((i) => i%2))
 
 function ddoc(data, done){
   let _TATP_ = 0
-  let fackif = true
   let suckit = new net.Socket()
   let coming = () => {
     return suckit.write(buffet, () => {
@@ -43,7 +42,6 @@ function ddoc(data, done){
     host: host,
   }, function(){
     ++futa
-    if (!fackif) return
     suckit.write(hellow)
     coming()
   })
@@ -56,7 +54,7 @@ pool.on('done', function(job, message) {
 [...new Array(guys).keys()].forEach((i) => pool.run(ddoc).send('good'))
 
 function clearSpeed(){
-  console.log((_up_ /= 2) >> 10 + 'KB/s up')
+  console.log((_up_ /= 2) >> 10 + 'KB/s up, ' + futa + 'futas coming.')
   setTimeout(clearSpeed, 500)
 }
 setTimeout(clearSpeed, 500)
