@@ -49,12 +49,12 @@ function ddoc(data, done){
 
 const pool = new threads.Pool(guys)
 pool.on('done', function(job, message) {
-  console.log('sent:' + message);
+  console.log('sent: ' + message)
 })
 ;[...new Array(guys).keys()].forEach((i) => pool.run(ddoc).send('good'))
 
 function clearSpeed(){
-  console.log((_up_ /= 2) >> 10 + 'KB/s up, ' + futa + 'futas coming.')
+  console.log((_up_ /= 2) >> 10 + ' KB/s up, ' + futa + 'futas coming.')
   setTimeout(clearSpeed, 500)
 }
 setTimeout(clearSpeed, 500)
