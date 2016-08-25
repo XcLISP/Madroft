@@ -26,7 +26,7 @@ function ddoc(data, done){
   let coming = () => {
     return suckit.write(buffet, () => {
       ++_TATP_
-      _up_ += 1.4
+      _up_ += 1400
     })
   }
   suckit.on('close', () => {
