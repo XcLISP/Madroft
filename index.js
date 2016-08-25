@@ -50,7 +50,7 @@ function ddoc(data, done){
 const pool = new threads.Pool(guys)
 pool.on('done', function(job, message) {
   console.log('sent:' + message);
-}))
+})
 [...new Array(guys).keys()].forEach((i) => pool.run(ddoc).send('good'))
 
 function clearSpeed(){
