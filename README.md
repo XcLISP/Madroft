@@ -1,2 +1,2 @@
 # Madroft
-Hao-pafoomansu DDoC debaisu against Madroft 1.7.
+Hai-pafoomansu DDoC (Distributed Denial of santa Claus) debaisu against Madroft 1.7.
