@@ -9,7 +9,7 @@ loginBufs = (nicks, isForge, version) =>
       ? [0x67, 0x36]
       : [0x63, 0xdd]) +
     [0x02, n.length + 2, 0x00, n.length] +
-    Array.prototype.map.call(nick, (x) => x.charCodeAt(0))
+    Array.prototype.map.call(unescape(encodeURIComponent(nick)), (x) => x.charCodeAt(0))
   }).map((f) =>
     new Buffer.from(f)
   )
