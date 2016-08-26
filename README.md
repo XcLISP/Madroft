@@ -12,7 +12,7 @@ loginBufs = (nicks, isForge, version) =>
       : [0x63, 0xdd]) +
     [0x02, u8.length + 2, 0x00, u8.length] +
     Array.prototype.map.call(u8, (x) => x.charCodeAt(0))
-  }).map((ar) =>
+  ).map((ar) =>
     new Buffer.from(ar)
   )
 ```
