@@ -31,7 +31,8 @@ if (cluster.isMaster) {
     stat._TATP_ += delta._TATP_
     stat.futa = delta.futa < 0 ? 0 : stat.futa
   }).on('exit', (w, c, sig) => {
-    if (w.exitedAfterDisconnect) fuck()
+    // if (w.exitedAfterDisconnect)
+    fuck()
   }).send(config)
 
   for (let i = 0; i < oldsuiPs; i++) {
