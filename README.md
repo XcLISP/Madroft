@@ -4,23 +4,13 @@ Hai-pafoomansu DDoC (Distributed Denial of santa Claus) debaisu against Madroft 
 ```js
 loginBufs = (nicks, isForge, version) =>
   nicks.map((n) => 
-    [0x06, 0x00] + 
+    [0x06, 0x00, version, 0x00] +
+    (isForge
+      ? [0x67, 0x36]
+      : [0x63, 0xdd]) +
+    [0x02, n.length + 2, 0x00, n.length] +
+    Array.prototype.map.call(nick, (x) => x.charCodeAt(0))
   }).map((f) =>
     new Buffer.from(f)
   )
-```
-
-```vb
-Function GetPacket_Login(Username As String, Session As String, Forge As Boolean, Version As Long) As String
-Dim Packet As String
-If Forge = True Then
-    Packet = "06 00 " & Hex(Version) & " 00 67 36 02 " & Hex(Len(Username) + 2) & " 00 " & Hex(Len(Username))
-Else
-    Packet = "06 00 " & Hex(Version) & " 00 63 DD 02 " & Hex(Len(Username) + 2) & " 00 " & Hex(Len(Username))
-End If
-For i = 1 To Len(Username)
-    Packet = Packet & " " & Hex(AscW(Mid(Username, i, 1)))
-Next i
-GetPacket_Login = Packet
-End Function
 ```
