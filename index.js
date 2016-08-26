@@ -50,7 +50,6 @@ if (cluster.isMaster) {
   }
 
   let suckit = new net.Socket()
-  suckit.setMaxListeners(500)
   suckit.setTimeout(1000)
 
   process.on('message', ({host, port}) => {
@@ -64,21 +63,19 @@ if (cluster.isMaster) {
       suckit.connect({
         port: port,
         host: host
-      }, () => {
-        suckit.write(hellow)
-        macrossD(1, 0, 0)
-        coming()
       })
     }
 
-    suckit.on('close', () => {
+    suckit.on('connect', () => {
+      suckit.write(hellow)
+      macrossD(1, 0, 0)
+      coming()
+    }).on('close', () => {
       macrossD(-1, 0, 0)
       process.exit(0)
-    })
-    suckit.on('data', () => {
+    }).on('data', () => {
       coming()
-    })
-    suckit.on('error', (err) => {
+    }).on('error', (err) => {
       setTimeout(shit, 1000)
     })
 
